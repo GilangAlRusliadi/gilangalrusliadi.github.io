@@ -1,3 +1,26 @@
+/* https://www.fontget.com/discover/anime/ */
+
+@font-face {
+    font-family: "Gilang";
+    src: url("fonts/Dimitri Inverse.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gilbert";
+    src: url("fonts/Febila.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Cyber";
+    src: url("fonts/Anita Semi Square.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +31,22 @@ body {
     align-items: center;
     height: 100vh;
     overflow: auto;
+}
+
+.divider {
+    width: 100%;
+    margin: 20px auto;
+    border-top: 3px solid #ffffff;
+}
+
+h1 {
+    margin: 10px 0;
+    font-family: "Gilang", cursive;
+}
+
+h2, h3 {
+    margin: 10px 0;
+    font-family: "Gilbert", cursive;
 }
 
 .background {
@@ -40,12 +79,7 @@ body {
     width: 100%;
     min-height: 100vh;
   }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
+    
   .icons {
     display: flex;
     flex-wrap: wrap;
@@ -75,6 +109,7 @@ body {
     display: block;
     margin-top: 10px;
     font-size: 1.2em;
+    font-family: "Cyber", cursive;
   }
   
   .icon:hover img {
