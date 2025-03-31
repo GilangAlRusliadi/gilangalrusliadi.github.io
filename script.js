@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let frame = document.getElementById("dynamicFrame");
     let overlay = document.querySelector(".overlay");
     let urls = [
-        "https://gilbertclaus.pythonanywhere.com/animated/orbit",
         "https://gilbertclaus.pythonanywhere.com/animated/star",
-        "https://gilangalrusliadi.github.io/Login/",
+        "https://gilbertclaus.pythonanywhere.com/animated/orbit",
         "https://gilbertclaus.pythonanywhere.com/animated/star2"
+        // "https://gilangalrusliadi.github.io/Login/",
     ];
     let index = 0;
 
