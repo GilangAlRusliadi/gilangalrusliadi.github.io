@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let frame = document.getElementById("dynamicFrame");
     let overlay = document.querySelector(".overlay");
     let urls = [
-        "https://gilbertclaus.pythonanywhere.com/animated/orbit",
+        "https://gilbertclaus.pythonanywhere.com/GawrGura.html",
         "https://gilbertclaus.pythonanywhere.com/animated/star",
+        "https://gilbertclaus.pythonanywhere.com/animated/orbit",
         "https://gilbertclaus.pythonanywhere.com/animated/star2"
         // "https://gilangalrusliadi.github.io/Login/",
     ];
@@ -24,5 +25,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 overlay.style.opacity = "0";
             }, 500);
         }, 500); // Waktu overlay hitam sebelum mengganti src
-    }, 10000);
+    }, 13000);
 });
