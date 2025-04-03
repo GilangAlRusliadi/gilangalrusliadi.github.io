@@ -24,7 +24,8 @@ const iconsData = [
         imgSrc: "https://static.wikia.nocookie.net/blue-archive/images/1/12/Schale_Icon_1.png",
         text: "Schale Network"
     },
-    { href: "https://github.com/GilangAlRusliadi/Miyuki",
+    {
+        href: "https://github.com/GilangAlRusliadi/Miyuki",
         imgSrc: "https://pbs.twimg.com/media/E4032VFXEAglwJ7.jpg",
         text: "Miyuki"
     }
