@@ -50,3 +50,18 @@ iconsData.forEach(icon => {
     anchor.appendChild(span);
     iconsContainer.appendChild(anchor);
 });
+
+let clickCount = 0;
+const aboutMe = document.querySelector("h3");
+
+aboutMe.addEventListener("click", () => {
+    clickCount++;
+    if (clickCount === 5) {
+        window.location.href = "https://huggingface.co/spaces/GilbertClaus/Test-HTML";
+    }
+
+    // Reset dalam 2 detik jika tidak lanjut klik
+    setTimeout(() => {
+        clickCount = 0;
+    }, 2000);
+});
