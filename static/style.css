@@ -2,21 +2,21 @@
 
 @font-face {
     font-family: "Gilang";
-    src: url("fonts/Dimitri Inverse.ttf") format("truetype");
+    src: url("../fonts/Dimitri Inverse.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Gilbert";
-    src: url("fonts/Febila.otf") format("truetype");
+    src: url("../fonts/Febila.otf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Cyber";
-    src: url("fonts/Anita Semi Square.ttf") format("truetype");
+    src: url("../fonts/Anita Semi Square.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
