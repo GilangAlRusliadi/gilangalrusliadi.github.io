@@ -52,16 +52,54 @@ iconsData.forEach(icon => {
 });
 
 let clickCount = 0;
-const aboutMe = document.querySelector("h3");
+let resetTimeout;
+let easterEggTriggered = false; // Untuk mencegah eksekusi ulang
 
-aboutMe.addEventListener("click", () => {
+function triggerEasterEgg() {
+    if (easterEggTriggered) return; // Jangan lanjut kalau sudah pernah dipicu
+    easterEggTriggered = true;
+
+    // Hapus semua elemen <h3>
+    const h3Elements = document.querySelectorAll("h3");
+    h3Elements.forEach(el => el.remove());
+
+    // Buat elemen <a> dan <img>
+    const link = document.createElement("a");
+    link.href = "https://huggingface.co/spaces/GilbertClaus/Test-HTML";
+    link.target = "_self";
+
+    const img = document.createElement("img");
+    img.src = "https://media.tenor.com/mI3JkM_fvmEAAAAj/easter-easter-eggs.gif";
+    img.alt = "Easter Egg";
+    img.style.width = "200px";
+    img.style.display = "block";
+    img.style.margin = "20px auto";
+
+    link.appendChild(img);
+
+    // Tambahkan ke dalam kontainer
+    const container = document.querySelector(".content");
+    container.appendChild(link);
+
+    // Matikan listener
+    document.removeEventListener("click", handleInput);
+    document.removeEventListener("touchstart", handleInput);
+}
+
+function handleInput() {
+    if (easterEggTriggered) return;
+
     clickCount++;
-    if (clickCount === 5) {
-        window.location.href = "https://huggingface.co/spaces/GilbertClaus/Test-HTML";
+    if (clickCount >= 5) {
+        triggerEasterEgg();
     }
 
-    // Reset dalam 2 detik jika tidak lanjut klik
-    setTimeout(() => {
+    clearTimeout(resetTimeout);
+    resetTimeout = setTimeout(() => {
         clickCount = 0;
-    }, 2000);
-});
+    }, 3000);
+}
+
+// Tambahkan listener
+document.addEventListener("click", handleInput);
+document.addEventListener("touchstart", handleInput);
