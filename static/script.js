@@ -72,10 +72,18 @@ function triggerEasterEgg() {
     // img.src = "https://media.tenor.com/mI3JkM_fvmEAAAAj/easter-easter-eggs.gif";
     img.src = "picture/frieren_smug.png";
     img.alt = "Easter Egg";
-    img.style.width = "500px";
+
+    // Deteksi apakah lebar layar kecil (HP) atau besar (laptop)
+    if (window.innerWidth <= 768) {
+        // HP
+        img.style.width = "100px";
+    } else {
+        // Laptop/Desktop
+        img.style.width = "500px";
+    }
     img.style.display = "block";
     img.style.position = "fixed";
-    img.style.bottom = "0px"; // biar bagian bawah ketutupan
+    img.style.bottom = "0px";
     img.style.left = "50%";
     img.style.transform = "translateX(-50%)";
 
