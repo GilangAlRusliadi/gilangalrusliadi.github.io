@@ -68,12 +68,16 @@ function triggerEasterEgg() {
     link.href = "https://huggingface.co/spaces/GilbertClaus/Test-HTML";
     link.target = "_self";
 
-    const img = document.createElement("img");
-    img.src = "https://media.tenor.com/mI3JkM_fvmEAAAAj/easter-easter-eggs.gif";
+    const img = document.createElement("img"); 
+    // img.src = "https://media.tenor.com/mI3JkM_fvmEAAAAj/easter-easter-eggs.gif";
+    img.src = "picture/frieren_smug.png";
     img.alt = "Easter Egg";
-    img.style.width = "200px";
+    img.style.width = "500px";
     img.style.display = "block";
-    img.style.margin = "20px auto";
+    img.style.position = "fixed";
+    img.style.bottom = "0px"; // biar bagian bawah ketutupan
+    img.style.left = "50%";
+    img.style.transform = "translateX(-50%)";
 
     link.appendChild(img);
 
