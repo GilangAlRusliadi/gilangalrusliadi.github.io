@@ -24,7 +24,7 @@ const iconsData = [
     },
     {
         text: "Schale Network",
-        href: "https://gilbertclaus.pythonanywhere.com/templates/doujin.html",
+        href: "https://gilbertclaus.pythonanywhere.com/doujin",
         imgSrc: "https://static.wikia.nocookie.net/blue-archive/images/1/12/Schale_Icon_1.png"
     },
     {
