@@ -1,3 +1,8 @@
+// Deteksi apakah perangkat adalah mobile
+function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     let frame = document.getElementById("dynamicFrame");
     let overlay = document.querySelector(".overlay");
@@ -7,23 +12,31 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://gilbertclaus.pythonanywhere.com/animated/orbit",
         "https://gilbertclaus.pythonanywhere.com/animated/star2"
         // "https://gilangalrusliadi.github.io/Login/",
-    ];
-    let index = 0;
-    frame.src = urls[0];
+    ];    
 
-    setInterval(() => {
-        // Mulai fade-in overlay hitam
-        overlay.style.opacity = "1";
+    // Jika perangkat mobile, hapus elemen pertama dari array
+    if (isMobile()) {
+        urls.shift(); // Menghapus data pertama
+        frame.src = urls[0];
+    } else {
 
-        setTimeout(() => {
-            // Ganti URL setelah fade-out selesai
-            index = (index + 1) % urls.length;
-            frame.src = urls[index];
+        let index = 0;
+        frame.src = urls[0];
 
-            // Setelah sedikit delay, fade-out overlay hitam
+        setInterval(() => {
+            // Mulai fade-in overlay hitam
+            overlay.style.opacity = "1";
+
             setTimeout(() => {
-                overlay.style.opacity = "0";
-            }, 500);
-        }, 500); // Waktu overlay hitam sebelum mengganti src
-    }, 13000);
+                // Ganti URL setelah fade-out selesai
+                index = (index + 1) % urls.length;
+                frame.src = urls[index];
+
+                // Setelah sedikit delay, fade-out overlay hitam
+                setTimeout(() => {
+                    overlay.style.opacity = "0";
+                }, 500);
+            }, 500); // Waktu overlay hitam sebelum mengganti src
+        }, 13000);
+    }
 });
