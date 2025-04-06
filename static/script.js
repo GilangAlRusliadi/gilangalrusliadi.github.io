@@ -113,5 +113,7 @@ function handleInput() {
 }
 
 // Tambahkan listener
-document.addEventListener("click", handleInput);
-document.addEventListener("touchstart", handleInput);
+const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const eventType = isMobile ? "touchstart" : "click";
+
+document.addEventListener(eventType, handleInput);
