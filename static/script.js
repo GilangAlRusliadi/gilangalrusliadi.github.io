@@ -1,3 +1,6 @@
+// Deteksi apakah perangkat adalah mobile
+const Mobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
 const iconsData = [
     {
         text: "PVZ",
@@ -73,14 +76,11 @@ function triggerEasterEgg() {
     img.src = "picture/frieren_smug.png";
     img.alt = "Easter Egg";
 
-    // Deteksi apakah lebar layar kecil (HP) atau besar (laptop)
-    if (window.innerWidth <= 768) {
-        // HP
-        img.style.width = "100px";
-    } else {
-        // Laptop/Desktop
-        img.style.width = "500px";
-    }
+    // Deteksi perangkat
+    img.style.width = Mobile
+        ? "200px"
+        : "500px";
+        
     img.style.display = "block";
     img.style.position = "fixed";
     img.style.bottom = "0px";
@@ -113,7 +113,5 @@ function handleInput() {
 }
 
 // Tambahkan listener
-const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-const eventType = isMobile ? "touchstart" : "click";
-
+const eventType = Mobile ? "touchstart" : "click";
 document.addEventListener(eventType, handleInput);

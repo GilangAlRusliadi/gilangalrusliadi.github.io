@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // "https://gilangalrusliadi.github.io/Login/",
     ];    
 
-    // Jika perangkat mobile, hapus elemen pertama dari array
     if (isMobile()) {
         frame.src = urls[1];
     } else {
