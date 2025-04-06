@@ -16,10 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Jika perangkat mobile, hapus elemen pertama dari array
     if (isMobile()) {
-        urls.shift(); // Menghapus data pertama
-        frame.src = urls[0];
+        frame.src = urls[1];
     } else {
-
         let index = 0;
         frame.src = urls[0];
 
