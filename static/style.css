@@ -39,7 +39,7 @@ body {
     border-top: 3px solid #ffffff;
 }
 
-h1 {
+h1 {  
     margin: 10px 0;
     font-family: "Gilang", cursive;
     font-size: 3rem;
@@ -49,9 +49,9 @@ h1 {
     -webkit-text-fill-color: transparent;
     animation: gradientShift 5s ease infinite;
     text-align: center;
-  }
-  
-  @keyframes gradientShift {
+}
+
+@keyframes gradientShift {
     0% {
       background-position: 0% 50%;
     }
@@ -61,7 +61,7 @@ h1 {
     100% {
       background-position: 0% 50%;
     }
-  }
+}
   
 .avatar {
   text-decoration: none;
