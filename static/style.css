@@ -43,7 +43,16 @@ h1 {
     margin: 10px 0;
     font-family: "Gilang", cursive;
     font-size: 3rem;
-    background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0, #8a2be2, #ff0080);
+    background: linear-gradient(90deg, 
+      #ff0000,   /* merah */
+      #ff7f00,   /* jingga */
+      #ffff00,   /* kuning */
+      #00ff00,   /* hijau */
+      #0000ff,   /* biru */
+      #4b0082,   /* nila */
+      #8a2be2,    /* ungu */ 
+      #ff0000,   /* merah */
+    );
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
