@@ -51,7 +51,7 @@ h1 {
       #0000ff,   /* biru */
       #4b0082,   /* nila */
       #8a2be2,    /* ungu */ 
-      #ff0000,   /* merah */
+      #ff0000   /* merah */
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
