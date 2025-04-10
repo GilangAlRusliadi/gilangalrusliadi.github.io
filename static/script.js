@@ -1,117 +1,92 @@
 // Deteksi apakah perangkat adalah mobile
 const Mobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+let iconsData = [];
 
-const iconsData = [
-    {
-        text: "PVZ",
-        href: "https://gilangalrusliadi.github.io/PVZ",
-        imgSrc: "https://static.wikia.nocookie.net/pvz-fusion/images/b/b7/Snipea.png"
-    },
-    {
-        text: "Light Novel",
-        href: "https://gilangalrusliadi.github.io/LN/",
-        imgSrc: "https://gilangalrusliadi.github.io/LN/images/trapped-in-a-dating-sim-otome-games-are-tough-for-us-too-light-novel-vol-1.jpg"
-    },
-    {
-        text: "Sparkling Mouse",
-        href: "https://gilangalrusliadi.github.io/Sparkling-Cursor/",
-        imgSrc: "https://cdn-icons-png.flaticon.com/256/1890/1890701.png"
-    },
-    {
-        text: "Alter Ego",
-        href: "https://gilbertclaus.pythonanywhere.com",
-        imgSrc: "https://static.wikia.nocookie.net/tmfanon/images/4/4c/FirstSeraphimCS.png"
-    },
-    {
-        text: "Schale Network",
-        href: "https://gilbertclaus.pythonanywhere.com/doujin",
-        imgSrc: "https://static.wikia.nocookie.net/blue-archive/images/1/12/Schale_Icon_1.png"
-    },
-    {
-        text: "Miyuki",
-        href: "https://github.com/GilangAlRusliadi/Miyuki",
-        imgSrc: "https://pbs.twimg.com/media/E4032VFXEAglwJ7.jpg"
-    }
-];
+// Fungsi untuk fetch data JSON dan render elemen
+async function fetchIconsData() {
+  try {
+    const response = await fetch('https://raw.githubusercontent.com/GilangAlRusliadi/gilangalrusliadi.github.io/refs/heads/main/static/data.json');
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    
+    iconsData = await response.json();
+    console.log("Data berhasil dimuat:", iconsData);
 
-const iconsContainer = document.querySelector(".icons");
+    const iconsContainer = document.querySelector(".icons");
 
-iconsData.forEach(icon => {
-    const anchor = document.createElement("a");
-    anchor.href = icon.href;
-    anchor.target = "_self";
-    anchor.classList.add("icon");
+    iconsData.forEach(icon => {
+      const anchor = document.createElement("a");
+      anchor.href = icon.href;
+      anchor.target = "_self";
+      anchor.classList.add("icon");
 
-    const img = document.createElement("img");
-    img.src = icon.imgSrc;
-    img.alt = icon.text;
+      const img = document.createElement("img");
+      img.src = icon.imgSrc;
+      img.alt = icon.text;
 
-    const span = document.createElement("span");
-    span.textContent = icon.text;
+      const span = document.createElement("span");
+      span.textContent = icon.text;
 
-    anchor.appendChild(img);
-    anchor.appendChild(span);
-    iconsContainer.appendChild(anchor);
-});
+      anchor.appendChild(img);
+      anchor.appendChild(span);
+      iconsContainer.appendChild(anchor);
+    });
 
+  } catch (error) {
+    console.error("Gagal mengambil data:", error);
+  }
+}
+
+fetchIconsData(); // Panggil fungsi untuk mulai fetch
+
+// === Easter Egg ===
 let clickCount = 0;
 let resetTimeout;
-let easterEggTriggered = false; // Untuk mencegah eksekusi ulang
+let easterEggTriggered = false;
 
 function triggerEasterEgg() {
-    if (easterEggTriggered) return; // Jangan lanjut kalau sudah pernah dipicu
-    easterEggTriggered = true;
+  if (easterEggTriggered) return;
+  easterEggTriggered = true;
 
-    // Hapus semua elemen <h3>
-    const h3Elements = document.querySelectorAll("h3");
-    h3Elements.forEach(el => el.remove());
+  const h3Elements = document.querySelectorAll("h3");
+  h3Elements.forEach(el => el.remove());
 
-    // Buat elemen <a> dan <img>
-    const link = document.createElement("a");
-    link.href = "https://huggingface.co/spaces/GilbertClaus/Test-HTML";
-    link.target = "_self";
+  const link = document.createElement("a");
+  link.href = "https://huggingface.co/spaces/GilbertClaus/Test-HTML";
+  link.target = "_self";
 
-    const img = document.createElement("img"); 
-    // img.src = "https://media.tenor.com/mI3JkM_fvmEAAAAj/easter-easter-eggs.gif";
-    img.src = "picture/frieren_smug.png";
-    img.alt = "Easter Egg";
+  const img = document.createElement("img");
+  img.src = "picture/frieren_smug.png";
+  img.alt = "Easter Egg";
 
-    // Deteksi perangkat
-    img.style.width = Mobile
-        ? "200px"
-        : "500px";
-        
-    img.style.display = "block";
-    img.style.position = "fixed";
-    img.style.bottom = "0px";
-    img.style.left = "50%";
-    img.style.transform = "translateX(-50%)";
+  img.style.width = Mobile ? "200px" : "500px";
+  img.style.display = "block";
+  img.style.position = "fixed";
+  img.style.bottom = "0px";
+  img.style.left = "50%";
+  img.style.transform = "translateX(-50%)";
 
-    link.appendChild(img);
+  link.appendChild(img);
 
-    // Tambahkan ke dalam kontainer
-    const container = document.querySelector(".content");
-    container.appendChild(link);
+  const container = document.querySelector(".content");
+  container.appendChild(link);
 
-    // Matikan listener
-    document.removeEventListener("click", handleInput);
-    document.removeEventListener("touchstart", handleInput);
+  document.removeEventListener("click", handleInput);
+  document.removeEventListener("touchstart", handleInput);
 }
 
 function handleInput() {
-    if (easterEggTriggered) return;
+  if (easterEggTriggered) return;
 
-    clickCount++;
-    if (clickCount >= 5) {
-        triggerEasterEgg();
-    }
+  clickCount++;
+  if (clickCount >= 5) {
+    triggerEasterEgg();
+  }
 
-    clearTimeout(resetTimeout);
-    resetTimeout = setTimeout(() => {
-        clickCount = 0;
-    }, 3000);
+  clearTimeout(resetTimeout);
+  resetTimeout = setTimeout(() => {
+    clickCount = 0;
+  }, 3000);
 }
 
-// Tambahkan listener
 const eventType = Mobile ? "touchstart" : "click";
 document.addEventListener(eventType, handleInput);
