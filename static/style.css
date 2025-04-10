@@ -35,8 +35,21 @@ body {
 
 .divider {
     width: 100%;
+    height: 5px; /* tinggi garis */
     margin: 20px auto;
-    border-top: 3px solid #ffffff;
+    background: linear-gradient(90deg, 
+      #ff0000,   /* merah */
+      #ff7f00,   /* jingga */
+      #ffff00,   /* kuning */
+      #00ff00,   /* hijau */
+      #0000ff,   /* biru */
+      #4b0082,   /* nila */
+      #8a2be2    /* ungu */ 
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 5s ease infinite;
+    border: none;
+    border-radius: 2px;
 }
 
 h1 {  
