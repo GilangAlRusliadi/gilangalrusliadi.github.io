@@ -2,9 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico:wght@700&display=swap');
 
-.Orbitron { font-family: 'Orbitron', cursive; }
-.Lobster { font-family: 'Lobster', cursive; }
-.Pacifico { font-family: 'Pacifico', cursive; }
 
 @font-face {
     font-family: "Gilang";
@@ -26,6 +23,61 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: "Hylia";
+    src: url("https://gilangalrusliadi.github.io/fonts/Hylia Serif.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Nier";
+    src: url("https://gilangalrusliadi.github.io/fonts/ITC Benguiat Book.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Kaiser";
+    src: url("https://gilangalrusliadi.github.io/fonts/Kaiserzeit Gotisch.ttf.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "One-Piece";
+    src: url("https://gilangalrusliadi.github.io/fonts/One Piece.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Dragon";
+    src: url("https://gilangalrusliadi.github.io/fonts/Power Of Dragon.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zelda";
+    src: url("https://gilangalrusliadi.github.io/fonts/The Wild Breath of Zelda.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Orbitron { font-family: 'Orbitron', cursive; }
+.Lobster { font-family: 'Lobster', cursive; }
+.Pacifico { font-family: 'Pacifico', cursive; }
+.Gilang { font-family: 'Gilang', cursive; }
+.Gilbert { font-family: 'Gilbert', cursive; }
+.Cyber { font-family: 'Cyber', cursive; }
+.Hylia { font-family: 'Hylia', cursive; }
+.Nier { font-family: 'Nier', cursive; }
+.Kaiser { font-family: 'Kaiser', cursive; }
+.One-Piece { font-family: 'One-Piece', cursive; }
+.Dragon { font-family: 'Dragon', cursive; }
+.Zelda { font-family: 'Zelda', cursive; }
 
 body {
     margin: 0;
@@ -67,10 +119,8 @@ body {
     border-radius: 2px;
 }
 
-h1 {  
+h1, h2, h3 {  
     margin: 10px 0;
-    font-family: "Gilang", cursive;
-    font-size: 3rem;
     background: linear-gradient(90deg, 
       #ff0000,   /* merah */
       #ff7f00,   /* jingga */
