@@ -1,20 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico:wght@700&display=swap');
+
+.Orbitron { font-family: 'Orbitron', cursive; }
+.Lobster { font-family: 'Lobster', cursive; }
+.Pacifico { font-family: 'Pacifico', cursive; }
+
 @font-face {
     font-family: "Gilang";
-    src: url("https://github.com/GilangAlRusliadi/gilangalrusliadi.github.io/raw/refs/heads/main/fonts/Dimitri Inverse.ttf") format("truetype");
+    src: url("https://gilangalrusliadi.github.io/fonts/Dimitri Inverse.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Gilbert";
-    src: url("https://github.com/GilangAlRusliadi/gilangalrusliadi.github.io/raw/refs/heads/main/fonts/Febila.otf") format("truetype");
+    src: url("https://gilangalrusliadi.github.io/fonts/Febila.otf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Cyber";
-    src: url("https://github.com/GilangAlRusliadi/gilangalrusliadi.github.io/raw/refs/heads/main/fonts/Anita Semi Square.ttf") format("truetype");
+    src: url("https://gilangalrusliadi.github.io/fonts/Anita Semi Square.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -29,6 +37,15 @@ body {
     align-items: center;
     height: 100vh;
     overflow: auto;
+}
+
+.overlay {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    padding: 10%;
 }
 
 .divider {
@@ -82,11 +99,3 @@ h1 {
     }
 }
   
-.overlay {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 100vh;
-    padding: 10%;
-}
