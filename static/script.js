@@ -5,7 +5,7 @@ let iconsData = [];
 // Fungsi untuk fetch data JSON dan render elemen
 async function fetchIconsData() {
   try {
-    const response = await fetch('https://raw.githubusercontent.com/GilangAlRusliadi/gilangalrusliadi.github.io/refs/heads/main/static/data.json');
+    const response = await fetch('https://gilangalrusliadi.github.io/static/data.json');
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     
     iconsData = await response.json();
