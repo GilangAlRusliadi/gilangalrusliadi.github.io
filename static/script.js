@@ -47,8 +47,14 @@ function triggerEasterEgg() {
   if (easterEggTriggered) return;
   easterEggTriggered = true;
 
-  const h3Elements = document.querySelectorAll("h3");
-  h3Elements.forEach(el => el.remove());
+  // const h3Elements = document.querySelectorAll("h3");
+  // h3Elements.forEach(el => el.remove());
+
+  const about = document.getElementById("about");
+  if (about) {
+    about.id = "easter-egg"; // ganti ID
+    about.textContent = "You found it. I suppose that deserves a reward. It's… probably safe.";
+  }
 
   const link = document.createElement("a");
   link.href = "https://huggingface.co/spaces/GilbertClaus/Test-HTML";
