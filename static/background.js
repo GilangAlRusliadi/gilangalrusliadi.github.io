@@ -3,7 +3,7 @@ function isMobile() {
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     let frame = document.getElementById("dynamicFrame");
     let overlay = document.querySelector(".overlay");
     let urls = [
@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://gilbertclaus.pythonanywhere.com/animated/star",
         "https://gilbertclaus.pythonanywhere.com/animated/orbit",
         "https://gilbertclaus.pythonanywhere.com/animated/star2"
-        // "https://gilangalrusliadi.github.io/Login/",
-    ];    
+    ];
 
     if (isMobile()) {
         frame.src = urls[1];
