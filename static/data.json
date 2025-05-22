@@ -15,9 +15,14 @@
       "imgSrc": "https://gilangalrusliadi.github.io/LN/images/trapped-in-a-dating-sim-otome-games-are-tough-for-us-too-light-novel-vol-1.jpg"
     },
     {
-      "text": "LIBREELEC",
-      "href": "https://github.com/GilangAlRusliadi/LIBREELEC.html",
+      "text": "LibreELEC",
+      "href": "https://github.com/GilangAlRusliadi/templates/LibreELEC.html",
       "imgSrc": "https://habrastorage.org/getpro/habr/upload_files/769/9f9/944/7699f99449bc0e692d5a5318fac6dedd.png"
+    },
+    {
+      "text": "NFO Maker",
+      "href": "https://github.com/GilangAlRusliadi/templates/NFO.html",
+      "imgSrc": "https://cdn-icons-png.flaticon.com/256/11870/11870655.png"
     },
     {
       "text": "Sparkling Mouse",
