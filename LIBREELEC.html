@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer with GitHub Style</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked@2.1.3/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            margin: 0;
+            padding: 0;
+            color: #c9d1d9;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #58a6ff;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 50px auto;
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        #markdownOutput {
+            padding: 20px;
+            background-color: #21262d;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #c9d1d9;
+        }
+
+        blockquote {
+            border-left: 4px solid #30363d;
+            padding-left: 10px;
+            margin: 20px 0;
+            color: #a0a1a7;
+            font-style: italic;
+        }
+
+        .bash-code {
+            background-color: #2d333b;
+            color: #e6f1ff;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            margin: 20px 0;
+            position: relative;
+            overflow: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #58a6ff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .copy-btn:hover {
+            background-color: #4c8bff;
+        }
+
+        .copy-message {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #2d333b;
+            color: #58a6ff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            display: none;
+            z-index: 10;
+        }
+
+        table, img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="markdownOutput">Loading...</div>
+    </div>
+
+    <script>
+        const markdownOutput = document.getElementById('markdownOutput');
+        const url = 'https://raw.githubusercontent.com/GilangAlRusliadi/LibreELEC-Dual-Boot/refs/heads/main/README.md';
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.text();
+            })
+            .then(markdownText => {
+                let htmlContent = marked.parse(markdownText);
+
+                // Format bash code blocks
+                htmlContent = htmlContent.replace(/<pre><code class="language-bash">([\s\S]*?)<\/code><\/pre>/g, function(match, code) {
+                    const escaped = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    return `
+                        <div class="bash-code">
+                            <pre>${escaped}</pre>
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                            <div class="copy-message">Copied!</div>
+                        </div>
+                    `;
+                });
+
+                markdownOutput.innerHTML = htmlContent;
+            })
+            .catch(error => {
+                markdownOutput.innerHTML = '<p style="color: red;">Error loading README: ' + error.message + '</p>';
+            });
+
+        function copyToClipboard(button) {
+            const code = button.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const message = button.nextElementSibling;
+                message.style.display = 'block';
+                setTimeout(() => {
+                    message.style.display = 'none';
+                }, 1000);
+            });
+        }
+    </script>
+</body>
+</html>
