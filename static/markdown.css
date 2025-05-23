@@ -1,68 +1,68 @@
 body {
-    background-color: #121212;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 2rem;
-    line-height: 1.6;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
 }
 a {
-    color: #80cbc4;
+  color: #007bff;
 }
 h1, h2, h3, h4 {
-    color: #ffffff;
+  color: #ffffff;
 }
 code {
-    background-color: #1e1e1e;
-    color: lime;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-family: monospace;
+  background-color: #1e1e1e;
+  color: lime;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
 }
 pre {
-    background-color: #1e1e1e;
-    padding: 1rem;
-    border-radius: 5px;
-    overflow-x: auto;
-    position: relative;
-    margin-bottom: 1.5rem;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 pre code {
-    color: lime;
-    font-family: monospace;
-    display: block;
-    white-space: pre;
+  color: lime;
+  font-family: monospace;
+  display: block;
+  white-space: pre;
 }
 .copy-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
 }
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
 }
 th, td {
-    border: 1px solid #333;
-    padding: 0.5rem;
-    text-align: left;
+  border: 1px solid #333;
+  padding: 0.5rem;
+  text-align: left;
 }
 th {
-    background-color: #1e1e1e;
+  background-color: #1e1e1e;
 }
 .logo {
-    display: block;
-    margin-bottom: 2rem;
+  display: block;
+  margin-bottom: 2rem;
 }
 img {
-    width: 95vw;
-    height: auto;
+  width: 95vw;
+  height: auto;
 }
