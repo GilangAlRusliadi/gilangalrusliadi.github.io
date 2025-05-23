@@ -90,18 +90,18 @@
 
     <p>To boot without delay or prompt, use this configuration:</p>
     <pre><code>DEFAULT run
-    TIMEOUT 0
-    PROMPT 0
+TIMEOUT 0
+PROMPT 0
 
-    LABEL installer
+LABEL installer
     KERNEL /KERNEL
     APPEND boot=UUID=XXXX-XXXX installer quiet systemd.debug_shell vga=current
 
-    LABEL live
+LABEL live
     KERNEL /KERNEL
     APPEND boot=UUID=XXXX-XXXX live quiet vga=current
 
-    LABEL run
+LABEL run
     KERNEL /KERNEL
     APPEND boot=UUID=XXXX-XXXX disk=UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX portable quiet video=HDMI-2:1920x1080@60 video=eDP-1:d</code>
     <button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
