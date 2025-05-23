@@ -1,18 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LibreELEC Dual Boot</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked@2.1.3/marked.min.js"></script>
-    <link rel="stylesheet" href="/static/markdown.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LibreELEC Dual Boot</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked@2.1.3/marked.min.js"></script>
+  <link rel="stylesheet" href="/static/markdown.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 </head>
 <body>
-    <div class="container">
-        <div id="markdownOutput" data-url="https://raw.githubusercontent.com/GilangAlRusliadi/LibreELEC-Dual-Boot/refs/heads/main/README.md">Loading...</div>
-    </div>
-    <script src="/static/markdown.js"></script>
+
+  <header style="text-align: center; padding: 1em;">
+    <a href="https://libreelec.tv/downloads/" class="logo">
+      <img src="https://forum.libreelec.tv/core/images/style-3/pageLogo.png" alt="LibreELEC Logo" />
+    </a>
+    <h1>LibreELEC 12.0.2 with Kodi (Omega) v21.2</h1>
+    <p>Download <a href="https://pixeldrain.com/u/pnKSQHWg">LIBREELEC.zip</a></p>
+  </header>
+
+  <main style="max-width: 900px; margin: auto; padding: 1em;">
+    <section>
+      <h2>Dual Boot LibreELEC</h2>
+      <p>This guide helps you set up a dual boot system with LibreELEC on your laptop or PC. LibreELEC is ideal for creating a media center with Kodi.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3>Installation Steps</h3>
+
+      <h4>1. Partition Preparation</h4>
+      <ul>
+        <li><strong>Windows:</strong> Use <a href="https://www.partitionwizard.com/download.html">MiniTool Partition Wizard</a>, because <strong>Windows Disk Management cannot create EXT4 partitions</strong>.</li>
+        <li><strong>Linux:</strong> Use tools like <code>GParted</code> or <code>KDE Partition Manager</code>.</li>
+      </ul>
+
+      <h4>2. Create Two Partitions</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>Format</th>
+            <th>Minimum Size</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LIBREELEC</td>
+            <td>FAT32</td>
+            <td>300 MB</td>
+            <td>Stores LibreELEC boot files</td>
+          </tr>
+          <tr>
+            <td>STORAGE</td>
+            <td>EXT4</td>
+            <td>1 GB</td>
+            <td>Stores userdata (themes, profiles, sources, thumbnails, databases, etc.)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>3. Extract LibreELEC</h4>
+      <p>Extract the contents of <code>LIBREELEC.zip</code> to the <code>LIBREELEC</code> partition.</p>
+
+      <h4>4. Edit Boot Configuration</h4>
+      <ul>
+        <li>Edit <code>syslinux.cfg</code> in the <code>LIBREELEC</code> partition.</li>
+        <li>Replace the <code>UUID</code> values for the partitions with the correct ones from your system.</li>
+      </ul>
+
+      <h5>How to Check UUIDs:</h5>
+      <ul>
+        <li><strong>Windows:</strong> Use <a href="https://www.diskgenius.com/download.php">DiskGenius</a></li>
+        <li><strong>Linux:</strong> Run this command:
+          <pre><code>blkid</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Recommended Boot Manager</h3>
+      <h4>Using GRUB</h4>
+      <p>LibreELEC can be booted using GRUB, but it requires some manual configuration.</p>
+
+      <h4><strong>Recommended: Use rEFInd</strong></h4>
+      <ul>
+        <li>Easier to configure and user-friendly interface.</li>
+        <li>Official Guide: <a href="https://www.rodsbooks.com/refind/installing.html">rEFInd Installation Guide</a></li>
+        <li>Quick installation for Windows: <a href="https://github.com/GilangAlRusliadi/rEFInd">My rEFInd Repository</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Using Second Monitor as Main Display for Kodi</h3>
+      <p>Add this line after <code>portable quiet</code> in <code>syslinux.cfg</code>:</p>
+      <pre><code>video=HDMI-2:1920x1080@60 video=eDP-1:d</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+
+      <p>To boot without delay or prompt, use this configuration:</p>
+      <pre><code>DEFAULT run
+TIMEOUT 0
+PROMPT 0
+
+LABEL installer
+  KERNEL /KERNEL
+  APPEND boot=UUID=XXXX-XXXX installer quiet systemd.debug_shell vga=current
+
+LABEL live
+  KERNEL /KERNEL
+  APPEND boot=UUID=XXXX-XXXX live quiet vga=current
+
+LABEL run
+  KERNEL /KERNEL
+  APPEND boot=UUID=XXXX-XXXX disk=UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX portable quiet video=HDMI-2:1920x1080@60 video=eDP-1:d</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    </section>
+
+    <section>
+      <h3>Additional Notes</h3>
+      <ul>
+        <li>Always back up your data before modifying partitions.</li>
+        <li>If boot issues occur, double-check UUIDs and partition labels.</li>
+        <li>The official installer will format the whole disk. It does not support dual boot. <a href="https://wiki.libreelec.tv/configuration/dual-boot">Check this</a>.</li>
+      </ul>
+      <p>Happy media-centering! 🎉</p>
+    </section>
+  </main>
+
+  <script src="/static/markdown.js"></script>
 </body>
 </html>
