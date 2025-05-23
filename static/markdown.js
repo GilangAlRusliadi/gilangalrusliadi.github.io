@@ -16,6 +16,10 @@ window.addEventListener("DOMContentLoaded", async () => {
                 return `
                     <div class="bash-code">
                         <pre>${escaped}</pre>
+                        <button class="copy-btn" onclick="copyToClipboard(this)">
+                            <i class="bi bi-copy"></i>
+                        </button>
+
                         <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
                         <div class="copy-message">Copied!</div>
                     </div>
